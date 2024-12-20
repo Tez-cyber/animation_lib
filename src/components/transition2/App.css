@@ -1,0 +1,13 @@
+
+
+header {
+    font-size: 4.5rem;
+    padding-bottom: 10px;
+}
+
+.card {
+    width: 250px;
+    height: 250px;
+    border-radius: 1rem;
+    background: #000;
+}

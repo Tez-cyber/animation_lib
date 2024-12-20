@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .circle {
+        @apply bg-[#ddd] h-[30px] w-[30px] flex justify-center items-center rounded-[50%] z-[1]
+    }
+
+    .circle.active {
+        @apply border-[#383838] text-[#fff] bg-[#43766c]
+    }
+
+    .disabled {
+        @apply outline-none border-0 cursor-not-allowed rounded-[4px] text-black bg-[#ddd] p-[4px_40px]
+    }
+
+    .progress {
+        @apply bg-[#630cf1] absolute w-full top-1/2 left-0 -translate-y-1/2 h-1 z-[1] transition-[all_.8s_ease-in]
+    }
+
+    .btn {
+        @apply outline-none border-0 cursor-pointer text-base rounded-[4px] bg-[#43766c] text-white p-[4px_40px] active:outline-none active:scale-[.98]
+    }
+}
