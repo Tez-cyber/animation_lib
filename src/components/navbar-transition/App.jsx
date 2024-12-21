@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './navbar.css'
-import { motion } from 'framer-motion'
+import { delay, motion } from 'framer-motion'
 import { Navbar } from './navbar'
 
 export default function App () {
@@ -15,13 +15,33 @@ export default function App () {
         }
     }
 
+    const image = {
+        scaleNormal: {
+            scale: 1,
+            transition: {
+                delay: .2,
+                duration: .4,
+                ease: "easeOut"
+            }
+        },
+        scaleDown: {
+            scale: .85,
+            transition: {
+                duration: .4,
+                ease: "easeOut"
+            }
+        },
+    }
+
     return (
         <div className="h-screen w-screen bg-[#eaeaea] overflow-hidden">
-            <img src="/end.jpg" 
+            <motion.img src="/end.jpg" 
                 alt="hero image"
                 className="absolute inset-0 w-full h-full object-cover
-                origin-bottom
+                    origin-bottom
                 "
+                variants={image}
+                animate={isOpen ? 'scaleDown' : 'scaleNormal'}
             />
             <section className="w-full h-full px-12 pt-4">
                 <div className="w-full p-2 border border-[#eaeaea] border-dashed
