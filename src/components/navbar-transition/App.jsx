@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import './navbar.css'
-import { delay, motion } from 'framer-motion'
+import { AnimatePresence, delay, motion } from 'framer-motion'
 import { Navbar } from './navbar'
 
-export default function App () {
+export default function App() {
     const [isOpen, setIsOpen] = useState(false)
     const rotateValue = 22.5
     const burger = {
@@ -35,7 +35,7 @@ export default function App () {
 
     return (
         <div className="h-screen w-screen bg-[#eaeaea] overflow-hidden">
-            <motion.img src="/end.jpg" 
+            <motion.img src="/end.jpg"
                 alt="hero image"
                 className="absolute inset-0 w-full h-full object-cover
                     origin-bottom
@@ -48,17 +48,17 @@ export default function App () {
                     flex justify-between items-center rounded-lg relative z-40
                 ">
                     <h1 className='font-bold text-[#eaeaea] text-2xl'>Planet.</h1>
-                    <div 
+                    <div
                         className='space-y-2 cursor-pointer'
                         onClick={() => setIsOpen(!isOpen)}
                     >
-                        <motion.div 
+                        <motion.div
                             className="w-[30px] h-[2px] bg-[#eaeaea] origin-left"
                             variants={burger}
                             animate={isOpen ? "opened" : "closed"}
                             custom={`${rotateValue}deg`}
                         />
-                        <motion.div 
+                        <motion.div
                             className="w-[30px] h-[2px] bg-[#eaeaea] origin-left"
                             variants={burger}
                             animate={isOpen ? "opened" : "closed"}
@@ -67,9 +67,11 @@ export default function App () {
                     </div>
                 </div>
             </section>
-            {
-                isOpen && <Navbar />
-            }
+            <AnimatePresence mode='wait'>
+                {
+                    isOpen && <Navbar />
+                }
+            </AnimatePresence>
         </div>
     )
 }
