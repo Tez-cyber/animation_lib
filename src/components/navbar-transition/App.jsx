@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './navbar.css'
 import { motion } from 'framer-motion'
+import { Navbar } from './navbar'
 
 export default function App () {
     const [isOpen, setIsOpen] = useState(false)
@@ -46,6 +47,9 @@ export default function App () {
                     </div>
                 </div>
             </section>
+            {
+                isOpen && <Navbar />
+            }
         </div>
     )
 }
