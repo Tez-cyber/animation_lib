@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from "./components/hide-sticky-nav/App"
+import App from "./components/intro-anim/App"
 import './index.css'
 import { BrowserRouter as Router } from 'react-router-dom'
 
