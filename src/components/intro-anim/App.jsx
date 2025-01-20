@@ -1,10 +1,12 @@
-
+import { Hero } from "./hero";
+import { Loader } from "./loader";
 
 function App() {
 
     return(
         <main>
-            New App for Loading animation
+            <Hero />
+            <Loader />
         </main>
     )
 }
