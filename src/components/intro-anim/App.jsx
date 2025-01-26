@@ -1,5 +1,5 @@
+import Loader from "./components/loader";
 import { Hero } from "./hero";
-import { Loader } from "./loader";
 
 function App() {
 
