@@ -1,5 +1,6 @@
 import Loader from "./components/loader";
 import { Hero } from "./hero";
+import './index.css'
 
 function App() {
 

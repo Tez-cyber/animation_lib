@@ -17,7 +17,7 @@ const Loader = () => {
         style={{
           clipPath:"polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)"
         }}
-        className="loader h-full w-full bg-white overflow-hidden z-[2] 
+        className="loader h-full w-full bg-white overflow-hidden z-[10] 
         flex flex-col justify-center items-center ">
         <div className="words relative overflow-hidden h-[41.8rem]">
           <div
