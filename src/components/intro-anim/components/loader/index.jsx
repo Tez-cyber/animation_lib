@@ -12,8 +12,15 @@ const Loader = () => {
     gsap.to(wordGroupsRef.current, {
       yPercent: -80,
       duration: 5,
-      ease: 'expo.inOut'
-    })
+      ease: 'power3.inOut'
+    });
+
+    gsap.to(progressRef.current, {
+      scaleX: 1,
+      duration: 5,
+      ease: 'power3.inOut'
+    });
+
   }, [])
 
   return (
@@ -21,11 +28,11 @@ const Loader = () => {
       <div className=" progressWrapper absolute bottom-0 left-0 h-[5vh] w-full z-[3]">
         <div 
           ref={progressRef}
-          className=" progress h-full w-full bg-black scale-x-0 origin-[left_center]" 
+          className="h-full w-full bg-black scale-x-0 origin-[left_center]" 
         />
         <span 
           ref={progressNumberRef}
-          className="progressNumber absolute left-[-5vw] top-1/2 z-[4] whitespace-nowrap 
+          className="progressNumber absolute left-[-5vw] top-1/2 z-[4] -translate-y-1/2 whitespace-nowrap 
         text-white text-[3.2rem]">
           0
         </span>
@@ -34,7 +41,7 @@ const Loader = () => {
         style={{
           clipPath:"polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)"
         }}
-        className="loader h-full w-full bg-white overflow-hidden z-[10] 
+        className="loader h-full w-full bg-white overflow-hidden z-[2] 
         flex flex-col justify-center items-center ">
         <div className="words relative overflow-hidden h-[41.8rem]">
           <div
