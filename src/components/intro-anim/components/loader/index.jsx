@@ -1,14 +1,31 @@
 import React, { useEffect, useRef } from "react";
 import { words } from "./data";
-
-// import styles from "./Loader.module.scss";
+import { gsap } from "gsap"
 
 const Loader = () => {
+  const loaderRef = useRef(null);
+  const progressRef = useRef(null);
+  const progressNumberRef = useRef(null);
+  const wordGroupsRef = useRef(null);
+
+  useEffect(() => {
+    gsap.to(wordGroupsRef.current, {
+      yPercent: -80,
+      duration: 5,
+      ease: 'expo.inOut'
+    })
+  }, [])
+
   return (
-    <div style={{ position: "fixed" }} className="wrapper relative h-full w-full inset-0 overflow-hidden">
+    <div style={{ position: "fixed" }} ref={loaderRef} className="wrapper relative h-full w-full inset-0 overflow-hidden">
       <div className=" progressWrapper absolute bottom-0 left-0 h-[5vh] w-full z-[3]">
-        <div className=" progress h-full w-full bg-black scale-x-0 origin-[left_center]"></div>
-        <span className="progressNumber absolute left-[-5vw] top-1/2 z-[4] whitespace-nowrap 
+        <div 
+          ref={progressRef}
+          className=" progress h-full w-full bg-black scale-x-0 origin-[left_center]" 
+        />
+        <span 
+          ref={progressNumberRef}
+          className="progressNumber absolute left-[-5vw] top-1/2 z-[4] whitespace-nowrap 
         text-white text-[3.2rem]">
           0
         </span>
@@ -26,7 +43,7 @@ const Loader = () => {
             }}
             className="overlay absolute inset-0 h-full z-[2]"
           />
-          <div className="wordsGroup">
+          <div className="wordsGroup" ref={wordGroupsRef}>
             {words.map((word, index) => {
               return (
                 <span key={index} className="word block text-[3.2rem] font-bold text-black">
