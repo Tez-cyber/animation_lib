@@ -7,7 +7,7 @@ function App() {
     return(
         <main>
             <Hero />
-            <Loader />
+            {/* <Loader /> */}
         </main>
     )
 }
