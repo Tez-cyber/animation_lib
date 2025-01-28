@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import { words } from "./data";
-import { gsap } from "gsap"
+import {
+  introAnimation, progressAnimation
+} from "./animation"
 
 const Loader = () => {
   const loaderRef = useRef(null);
@@ -9,18 +11,8 @@ const Loader = () => {
   const wordGroupsRef = useRef(null);
 
   useEffect(() => {
-    gsap.to(wordGroupsRef.current, {
-      yPercent: -80,
-      duration: 5,
-      ease: 'power3.inOut'
-    });
-
-    gsap.to(progressRef.current, {
-      scaleX: 1,
-      duration: 5,
-      ease: 'power3.inOut'
-    });
-
+    const tl = gsap.timeline();
+    tl.add(introAnimation()).add(progressAnimation())
   }, [])
 
   return (
