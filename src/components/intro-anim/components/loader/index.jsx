@@ -10,10 +10,7 @@ const Loader = () => {
   const progressNumberRef = useRef(null);
   const wordGroupsRef = useRef(null);
 
-  useEffect(() => {
-    const tl = gsap.timeline();
-    tl.add(introAnimation()).add(progressAnimation())
-  }, [])
+  useEffect(() => {}, [])
 
   return (
     <div style={{ position: "fixed" }} ref={loaderRef} className="wrapper relative h-full w-full inset-0 overflow-hidden">
