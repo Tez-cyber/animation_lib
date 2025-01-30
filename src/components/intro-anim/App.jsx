@@ -7,7 +7,8 @@ import './index.css'
 
 
 function App() {
-    const [loaderFinished, setLoaderFinished] = useState(false)
+    const [loaderFinished, setLoaderFinished] = useState(false);
+    const [timeline, setTimeline] = useState(second)
 
     return(
         <main>
