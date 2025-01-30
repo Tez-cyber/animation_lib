@@ -4,13 +4,18 @@ import {
   introAnimation, progressAnimation
 } from "./animation"
 
-const Loader = () => {
+const Loader = ({ timeline }) => {
   const loaderRef = useRef(null);
   const progressRef = useRef(null);
   const progressNumberRef = useRef(null);
   const wordGroupsRef = useRef(null);
 
-  useEffect(() => {}, [])
+  useEffect(() => {
+    timeline &&
+      timeline
+        .add(introAnimation(wordGroupsRef))
+        .add(progressAnimation(progressRef, progressNumberRef));
+  }, [timeline])
 
   return (
     <div style={{ position: "fixed" }} ref={loaderRef} className="wrapper relative h-full w-full inset-0 overflow-hidden">

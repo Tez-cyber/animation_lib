@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import { gsap } from "gsap";
 
 import Loader from "./components/loader";
@@ -8,12 +8,28 @@ import './index.css'
 
 function App() {
     const [loaderFinished, setLoaderFinished] = useState(false);
-    const [timeline, setTimeline] = useState(second)
+    const [timeline, setTimeline] = useState(null);
 
-    return(
+    useLayoutEffect(() => {
+        const context = gsap.context(() => {
+            const tl = gsap.timeline({
+                onComplete: () => {
+                    setLoaderFinished(true);
+                }
+            });
+
+            setTimeline(tl);
+        });
+
+        return () => context.revert();
+    }, []);
+
+    return (
         <main>
-            <Loader />
-            <Hero />
+            {
+                loaderFinished ?
+                    <Hero /> : <Loader timeline={timeline} />
+            }
         </main>
     )
 }
