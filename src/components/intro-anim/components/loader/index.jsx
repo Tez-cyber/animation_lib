@@ -15,7 +15,7 @@ const Loader = ({ timeline }) => {
       timeline
         .add(introAnimation(wordGroupsRef))
         .add(progressAnimation(progressRef, progressNumberRef), 0)
-        .add(collapseWords(loaderRef));
+        .add(collapseWords(loaderRef), "-=1");
   }, [timeline])
 
   return (
@@ -32,7 +32,7 @@ const Loader = ({ timeline }) => {
           ref={progressNumberRef}
           className="progressNumber absolute left-[-5vw] top-1/2 z-[4] -translate-y-1/2 whitespace-nowrap 
         text-white text-[3.2rem]">
-          0
+          0%
         </span>
       </div>
       <div 
