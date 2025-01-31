@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { words } from "./data";
 import {
-  introAnimation, progressAnimation
+  introAnimation, progressAnimation, collapseWords
 } from "./animation"
 
 const Loader = ({ timeline }) => {
@@ -14,11 +14,15 @@ const Loader = ({ timeline }) => {
     timeline &&
       timeline
         .add(introAnimation(wordGroupsRef))
-        .add(progressAnimation(progressRef, progressNumberRef));
+        .add(progressAnimation(progressRef, progressNumberRef), 0)
+        .add(collapseWords(loaderRef));
   }, [timeline])
 
   return (
-    <div style={{ position: "fixed" }} ref={loaderRef} className="wrapper relative h-full w-full inset-0 overflow-hidden">
+    <div 
+      style={{ position: "fixed" }} 
+      className="wrapper relative h-full w-full inset-0 overflow-hidden"
+    >
       <div className=" progressWrapper absolute bottom-0 left-0 h-[5vh] w-full z-[3]">
         <div 
           ref={progressRef}
@@ -35,6 +39,7 @@ const Loader = ({ timeline }) => {
         style={{
           clipPath:"polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)"
         }}
+        ref={loaderRef} 
         className="loader h-full w-full bg-white overflow-hidden z-[2] 
         flex flex-col justify-center items-center ">
         <div className="words relative overflow-hidden h-[41.8rem]">

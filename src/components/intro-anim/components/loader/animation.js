@@ -1,6 +1,6 @@
 import { gsap } from 'gsap';
 
-export const introAnimation = () => {
+export const introAnimation = (wordGroupsRef) => {
     const tl = gsap.timeline();
 
     tl.to(wordGroupsRef.current, {
@@ -29,7 +29,7 @@ export const collapseWords = (loaderRef) => {
 
     tl.to(loaderRef.current, {
         clipPath: "polygon(0% 50%, 100% 50%, 100% 50%, 0% 50%)",
-        duration: 3,
+        duration: 2.5,
         ease: "expo.inOut"
     })
 

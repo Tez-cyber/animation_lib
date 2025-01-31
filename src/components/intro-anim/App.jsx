@@ -26,10 +26,11 @@ function App() {
 
     return (
         <main>
-            {
+            {/* {
                 loaderFinished ?
                     <Hero /> : <Loader timeline={timeline} />
-            }
+            } */}
+            <Loader timeline={timeline} />
         </main>
     )
 }
