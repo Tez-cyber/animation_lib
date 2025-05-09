@@ -1,4 +1,4 @@
-import React from 'react'
+import './reveal.css'
 
 const App = () => {
     return (
@@ -100,11 +100,11 @@ const App = () => {
                         <span>Terms & Conditions</span>
                     </div>
                     <div className="sub-col">
-                        <span>Twitter</span>
-                        <span>LinkedIn</span>
-                        <span>Instagram</span>
-                        <span>Awwwards</span>
-                        <span>Email</span>
+                        <h1>Twitter</h1>
+                        <h1>LinkedIn</h1>
+                        <h1>Instagram</h1>
+                        <h1>Awwwards</h1>
+                        <h1>Email</h1>
                     </div>
                 </div>
                 <div className="col">
