@@ -6,7 +6,7 @@ import { useGSAP } from '@gsap/react';
 import { stagger } from "framer-motion";
 import { div } from "framer-motion/client";
 
-gsap.registerPlugin(SplitText, ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 export const Copy = ({ children, animateOnScroll = true, delay = 0 }) => {
     const containerRef = useRef(null);
@@ -34,7 +34,7 @@ export const Copy = ({ children, animateOnScroll = true, delay = 0 }) => {
             const split = SplitText.create(element,  {
                 type: "lines",
                 mask: "lines",
-                linesClass: "line++"
+                // linesClass: "line++"
             });
 
             splitRef.current.push(split);
@@ -65,7 +65,7 @@ export const Copy = ({ children, animateOnScroll = true, delay = 0 }) => {
 
         if (animateOnScroll) {
             gsap.to(lines.current, {
-                ...animationProps, ScrollTrigger: {
+                ...animationProps, scrollTrigger: {
                     trigger: containerRef.current,
                     start: "top 75%",
                     once: true
