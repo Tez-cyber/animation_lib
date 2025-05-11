@@ -1,3 +1,4 @@
+import './brand.css'
 const Card = ({ title, copy, index }) => {
     return (
         <div className="card" id={`card-${index + 1}`}>
