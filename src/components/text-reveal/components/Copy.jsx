@@ -3,8 +3,7 @@ import gsap from "gsap";
 import { SplitText } from 'gsap/SplitText';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-import { stagger } from "framer-motion";
-import { div } from "framer-motion/client";
+
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
